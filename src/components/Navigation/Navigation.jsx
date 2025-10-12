@@ -8,11 +8,11 @@ export default function Navigation() {
   return (
     <nav className={styles.nav}>
       <NavLink to="/" className={styles.link}>
-        Ana Sayfa
+        Home
       </NavLink>
       {isLoggedIn && (
         <NavLink to="/contacts" className={styles.link}>
-          Rehberim
+          My Contacts
         </NavLink>
       )}
     </nav>
