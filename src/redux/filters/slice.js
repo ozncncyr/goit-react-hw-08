@@ -8,16 +8,11 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    changeFilter(state, action) {
-      state.search = action.payload;
-      return state;
+    setFilter(state, action) {
+      state.name = action.payload;
     },
-  },
-  selectors: {
-    selectNameFilter: (state) => state.search,
   },
 });
 
-export const { changeFilter } = filtersSlice.actions;
+export const { setFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;
-export const { selectNameFilter } = filtersSlice.selectors;
