@@ -1,28 +1,19 @@
-import { useSelector, useDispatch } from "react-redux";
-import {
-  changeFilter,
-  selectNameFilter,
-} from "../../redux/reducers/filtersSlice";
-import css from "./SearchBox.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from "../../redux/filters/slice";
+import { selectFilter } from "../../redux/filters/selectors";
+import styles from "./Filter.module.css";
 
-const Filter = () => {
+export default function Filter() {
   const dispatch = useDispatch();
-  const filter = useSelector(selectNameFilter);
-
-  const handleChange = (e) => dispatch(changeFilter(e.target.value));
+  const filter = useSelector(selectFilter);
 
   return (
-    <div className={css.searchBox}>
-      <input
-        className={css.input}
-        type="text"
-        name="filter"
-        placeholder="Search by name or number"
-        value={filter}
-        onChange={handleChange}
-      />
-    </div>
+    <input
+      className={styles.input}
+      type="text"
+      value={filter}
+      onChange={(e) => dispatch(setFilter(e.target.value))}
+      placeholder="Search name or phone number"
+    />
   );
-};
-
-export default Filter;
+}
