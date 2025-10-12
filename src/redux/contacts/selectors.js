@@ -8,8 +8,10 @@ export const selectFilteredContacts = createSelector(
   (contacts, filter) => {
     return contacts.filter(
       (contact) =>
-        contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-        contact.phone.includes(filter)
+        contact.name?.toLowerCase().includes(filter.toLowerCase()) ||
+        false ||
+        contact.number?.includes(filter) ||
+        false
     );
   }
 );
